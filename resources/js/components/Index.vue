@@ -1,5 +1,5 @@
 <template>
-<div>index</div>
+<div class="text-center m-4"><h1>Home</h1></div>
 
 </template>
 
