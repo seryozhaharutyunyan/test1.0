@@ -2,6 +2,8 @@ import * as VueRoute from 'vue-router';
 import Index from "./components/Index.vue";
 import Login from "./components/Login.vue";
 import Registration from "./components/Registration.vue";
+import AddProduct from "./components/AddProduct.vue";
+import AddSupply from "./components/AddSupply.vue";
 
 
 const routes = [
@@ -22,6 +24,18 @@ const routes = [
         name: 'registration',
         component: Registration
     },
+
+    {
+        path: '/product',
+        name: 'product',
+        component: AddProduct
+    },
+
+    {
+        path: '/supply',
+        name: 'supply',
+        component: AddSupply
+    },
 ];
 
 
@@ -34,16 +48,7 @@ const router = VueRoute.createRouter({
 router.beforeEach((to, from, next)=>{
     const token=localStorage.getItem('token');
 
-    if(!token){
-        if(to.name==='login' || to.name==='home' || to.name==='registration'){
-            return next();
-        }else {
-            return next({
-                name: 'login'
-            })
-        }
-
-    }else {
+    if(token){
         if (to.name==='login' || to.name==='registration'){
             return next({
                 name: "home"

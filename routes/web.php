@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('{page}', 'App\Http\Controllers\HomeController')->where('page', '.*');
+//Route::post('/product/add', 'App\Http\Controllers\ProductController@store');
+//Route::get('/product/all', 'App\Http\Controllers\ProductController@index');

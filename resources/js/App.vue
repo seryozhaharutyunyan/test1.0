@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center justify-content-center">
+    <div class="m-3 p-3 text-center justify-content-center">
         <router-link :to="{ name: 'home'}" class="mt-2">
             Home |
         </router-link>
@@ -7,7 +7,12 @@
             Login |
         </router-link>
         <router-link v-if="!token" :to="{ name: 'registration'}" class="mt-2">
-            Registration
+            Registration |
+        </router-link>
+        <router-link v-if="!token" :to="{ name: 'product'}" class="mt-2">
+            Add Product |
+        </router-link><router-link v-if="!token" :to="{ name: 'supply'}" class="mt-2">
+            Add supply
         </router-link>
         <a href="#" v-if="token" @click.prevent="logout()" class="mt-2">
             Logout
