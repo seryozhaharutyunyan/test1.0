@@ -11,7 +11,8 @@
         </router-link>
         <router-link v-if="!token" :to="{ name: 'product'}" class="mt-2">
             Add Product |
-        </router-link><router-link v-if="!token" :to="{ name: 'supply'}" class="mt-2">
+        </router-link>
+        <router-link v-if="!token" :to="{ name: 'supply'}" class="mt-2">
             Add supply
         </router-link>
         <a href="#" v-if="token" @click.prevent="logout()" class="mt-2">
@@ -28,28 +29,28 @@ import axios from "axios";
 export default {
     name: "App",
 
-    data(){
+    data() {
         return {
-            token:null,
+            token: null,
         }
     },
 
-    methods:{
-        getToken(){
-            this.token=localStorage.getItem('token');
+    methods: {
+        getToken() {
+            this.token = localStorage.getItem('token');
         },
 
-        logout(){
+        logout() {
             axios.post('/logout')
-            .then(()=>{
-                localStorage.removeItem('token');
-                this.getToken();
-                this.$router.push({name: "login"});
-            })
+                .then(() => {
+                    localStorage.removeItem('token');
+                    this.getToken();
+                    this.$router.push({name: "login"});
+                })
         }
     },
 
-    watch:{
+    watch: {
         '$route': {
             immediate: true,
             handler() {

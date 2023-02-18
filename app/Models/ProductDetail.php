@@ -9,7 +9,13 @@ class ProductDetail extends Model
 {
     use HasFactory;
 
-    protected $table='product_details';
-    protected $guarded=[];
-    public $timestamps=false;
+    protected $table = 'product_details';
+    protected $guarded = [];
+    public $timestamps = false;
+    protected $with = ['product'];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
 }

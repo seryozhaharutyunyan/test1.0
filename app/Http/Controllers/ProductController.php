@@ -10,9 +10,10 @@ class ProductController extends Controller
 
     public function index()
     {
-        $data=Product::all();
+        $data = Product::all();
         return response($data);
     }
+
     public function store(StoreRequest $request)
     {
         $data = $request->validated();
