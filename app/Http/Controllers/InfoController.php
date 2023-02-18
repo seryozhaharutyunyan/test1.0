@@ -73,7 +73,7 @@ class InfoController extends Controller
 
         $d = mktime(0, 0, 0, $date[1], $date[2], $date[0]);
         if ($d != (int)$_COOKIE['date']) {
-            return response(['message' => 'wrong date'], 455);
+            return response(['message' => 'Choose today'], 455);
         } else {
             $n = ($d - $dateStart) / (24 * 60 * 60);
         }
