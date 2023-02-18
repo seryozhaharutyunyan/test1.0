@@ -22,7 +22,7 @@
                     </thead>
                     <tbody>
                     <tr v-for="(product, key) in products" :key="key">
-                        <th scope="row">{{key}}</th>
+                        <th scope="row">{{ key }}</th>
                         <td>{{ product.delivery_number }}</td>
                         <td>{{ product.product.name }}</td>
                         <td>{{ product.quantity }}</td>
@@ -60,7 +60,7 @@ export default {
             error: '',
             data: {},
             show: false,
-            products:false
+            products: false
         }
     },
 
@@ -69,7 +69,7 @@ export default {
             this.error = '';
             this.data = {}
             this.show = false;
-            this.products=false;
+            this.products = false;
 
             axios.post('/api/info', {
                 date: this.date,
@@ -83,8 +83,8 @@ export default {
                 this.show = false;
                 if (error.response.data.message) {
                     this.error = error.response.data.message;
-                    if(error.response.data.products){
-                        this.products=error.response.data.products;
+                    if (error.response.data.products) {
+                        this.products = error.response.data.products;
                     }
                 }
                 console.log(error);

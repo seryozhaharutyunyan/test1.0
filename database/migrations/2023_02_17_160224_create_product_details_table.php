@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -22,7 +21,7 @@ return new class extends Migration
             $table->date('date');
 
             $table->index('product_id', 'product_product_details_idx');
-            $table->foreign('product_id','product_product_details_fk')
+            $table->foreign('product_id', 'product_product_details_fk')
                 ->on('products')->references('id');
         });
     }

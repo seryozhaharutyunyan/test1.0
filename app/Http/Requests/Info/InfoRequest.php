@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Requests\Info;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -23,8 +24,8 @@ class InfoRequest extends FormRequest
     public function rules()
     {
         return [
-            'date'=>'required|date',
-            'product_id'=>'required|int|exists:products,id',
+            'date' => 'required|date',
+            'product_id' => 'required|int|exists:products,id',
         ];
     }
 }

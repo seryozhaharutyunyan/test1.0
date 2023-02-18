@@ -39,17 +39,16 @@ const routes = [
 ];
 
 
-
 const router = VueRoute.createRouter({
     history: VueRoute.createWebHistory("/"),
     routes
 })
 
-router.beforeEach((to, from, next)=>{
-    const token=localStorage.getItem('token');
+router.beforeEach((to, from, next) => {
+    const token = localStorage.getItem('token');
 
-    if(token){
-        if (to.name==='login' || to.name==='registration'){
+    if (token) {
+        if (to.name === 'login' || to.name === 'registration') {
             return next({
                 name: "home"
             })

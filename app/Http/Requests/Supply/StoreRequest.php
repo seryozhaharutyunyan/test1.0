@@ -24,7 +24,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'delivery_number'=>'required|string|min:1',
-            'product_id'=>'required|int|exists:products,id',
+            'product_id' => 'required|int|exists:products,id',
             'quantity'=>'required|int',
             'price'=>'required|int',
             'date'=>'required|date',

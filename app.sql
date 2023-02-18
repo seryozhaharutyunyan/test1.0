@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 -- Структура таблицы `failed_jobs`
 --
 
-CREATE TABLE `failed_jobs` (
+create TABLE `failed_jobs` (
   `id` bigint UNSIGNED NOT NULL,
   `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `failed_jobs` (
 -- Структура таблицы `migrations`
 --
 
-CREATE TABLE `migrations` (
+create TABLE `migrations` (
   `id` int UNSIGNED NOT NULL,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL
@@ -53,7 +53,7 @@ CREATE TABLE `migrations` (
 -- Дамп данных таблицы `migrations`
 --
 
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+insert into `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
@@ -67,7 +67,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 -- Структура таблицы `password_resets`
 --
 
-CREATE TABLE `password_resets` (
+create TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
@@ -79,7 +79,7 @@ CREATE TABLE `password_resets` (
 -- Структура таблицы `personal_access_tokens`
 --
 
-CREATE TABLE `personal_access_tokens` (
+create TABLE `personal_access_tokens` (
   `id` bigint UNSIGNED NOT NULL,
   `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint UNSIGNED NOT NULL,
@@ -98,7 +98,7 @@ CREATE TABLE `personal_access_tokens` (
 -- Структура таблицы `products`
 --
 
-CREATE TABLE `products` (
+create TABLE `products` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `quantity` int NOT NULL DEFAULT '0'
@@ -108,7 +108,7 @@ CREATE TABLE `products` (
 -- Дамп данных таблицы `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `quantity`) VALUES
+insert into `products` (`id`, `name`, `quantity`) VALUES
 (1, 'Колбаса', 300),
 (2, 'Пармезан', 10),
 (3, 'Левый носок', 551);
@@ -119,7 +119,7 @@ INSERT INTO `products` (`id`, `name`, `quantity`) VALUES
 -- Структура таблицы `product_details`
 --
 
-CREATE TABLE `product_details` (
+create TABLE `product_details` (
   `id` bigint UNSIGNED NOT NULL,
   `delivery_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_id` bigint UNSIGNED NOT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE `product_details` (
 -- Дамп данных таблицы `product_details`
 --
 
-INSERT INTO `product_details` (`id`, `delivery_number`, `product_id`, `quantity`, `price`, `date`) VALUES
+insert into `product_details` (`id`, `delivery_number`, `product_id`, `quantity`, `price`, `date`) VALUES
 (1, '1', 1, 300, 5000, '2021-01-01'),
 (2, 't-500', 2, 10, 6000, '2021-01-02'),
 (3, '12-TP-777', 3, 99, 500, '2021-01-13'),
@@ -148,7 +148,7 @@ INSERT INTO `product_details` (`id`, `delivery_number`, `product_id`, `quantity`
 -- Структура таблицы `users`
 --
 
-CREATE TABLE `users` (
+create TABLE `users` (
   `id` bigint UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -163,7 +163,7 @@ CREATE TABLE `users` (
 -- Дамп данных таблицы `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+insert into `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@mail.ru', NULL, '$2y$10$iAg/k5DXZvDX4u3Bw0bbueQ/wCObD/HSXQIqgGuD7nzU/hmc/2BOa', NULL, '2023-01-29 09:22:11', '2023-01-29 09:22:11');
 
 --
@@ -173,26 +173,26 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 --
 -- Индексы таблицы `failed_jobs`
 --
-ALTER TABLE `failed_jobs`
+alter table `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
 
 --
 -- Индексы таблицы `migrations`
 --
-ALTER TABLE `migrations`
+alter table `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `password_resets`
 --
-ALTER TABLE `password_resets`
+alter table `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
 -- Индексы таблицы `personal_access_tokens`
 --
-ALTER TABLE `personal_access_tokens`
+alter table `personal_access_tokens`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
@@ -200,20 +200,20 @@ ALTER TABLE `personal_access_tokens`
 --
 -- Индексы таблицы `products`
 --
-ALTER TABLE `products`
+alter table `products`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Индексы таблицы `product_details`
 --
-ALTER TABLE `product_details`
+alter table `product_details`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product_product_details_idx` (`product_id`);
 
 --
 -- Индексы таблицы `users`
 --
-ALTER TABLE `users`
+alter table `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `users_email_unique` (`email`);
 
@@ -224,37 +224,37 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT для таблицы `failed_jobs`
 --
-ALTER TABLE `failed_jobs`
+alter table `failed_jobs`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `migrations`
 --
-ALTER TABLE `migrations`
+alter table `migrations`
   MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT для таблицы `personal_access_tokens`
 --
-ALTER TABLE `personal_access_tokens`
+alter table `personal_access_tokens`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `products`
 --
-ALTER TABLE `products`
+alter table `products`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `product_details`
 --
-ALTER TABLE `product_details`
+alter table `product_details`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
-ALTER TABLE `users`
+alter table `users`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
@@ -264,9 +264,9 @@ ALTER TABLE `users`
 --
 -- Ограничения внешнего ключа таблицы `product_details`
 --
-ALTER TABLE `product_details`
+alter table `product_details`
   ADD CONSTRAINT `product_product_details_fk` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`);
-COMMIT;
+commit;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
