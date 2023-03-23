@@ -35,7 +35,7 @@ class InfoController extends Controller
                     return response([
                         'date' => $data['date'],
                         'quantity' => $quantityBest,
-                        'price' => $value->price,
+                        'price' => $value->price+$value->price*0.3,
                     ]);
                 }
             }
